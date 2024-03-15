@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "android",
+      "problemMatcher": [],
+      "label": "npx expo run:android",
+      "detail": "Run the android app on development build."
+    }
+  ]
+}
