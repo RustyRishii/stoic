@@ -5,8 +5,8 @@
     "project_id": "quizmania-45e23",
     "storage_bucket": "quizmania-45e23.appspot.com"
   },
-  "client": [ 
-    { 
+  "client": [
+    {
       "client_info": {
         "mobilesdk_app_id": "1:353858780966:android:1faf3baaeb01da17aa8be7",
         "android_client_info": {
@@ -14,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "353858780966-3otlhkqp6t0m698l663oamv3uqalb4v8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "stoic.com",
+            "certificate_hash": "c7ab1f502b1885c7ef87e9966c2cf4d50bd7d689"
+          }
+        },
         {
           "client_id": "353858780966-umsiona4qq1aa7gnk8qroaibk7u9iv11.apps.googleusercontent.com",
           "client_type": 3
