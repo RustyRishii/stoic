@@ -1,45 +1,26 @@
 {
   "project_info": {
-    "project_number": "353858780966",
-    "firebase_url": "https://quizmania-45e23.firebaseio.com",
-    "project_id": "quizmania-45e23",
-    "storage_bucket": "quizmania-45e23.appspot.com"
+    "project_number": "330812109325",
+    "project_id": "stoic-193a1",
+    "storage_bucket": "stoic-193a1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:353858780966:android:1faf3baaeb01da17aa8be7",
+        "mobilesdk_app_id": "1:330812109325:android:a76583f7f068c7c2cb1b44",
         "android_client_info": {
           "package_name": "stoic.com"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "353858780966-3otlhkqp6t0m698l663oamv3uqalb4v8.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "stoic.com",
-            "certificate_hash": "c7ab1f502b1885c7ef87e9966c2cf4d50bd7d689"
-          }
-        },
-        {
-          "client_id": "353858780966-umsiona4qq1aa7gnk8qroaibk7u9iv11.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCIndPUuBWYvBe-79eY8dWsnZ0cs4zqlL4"
+          "current_key": "AIzaSyCwB8zfUS-90A6U-mulZ7U7my_zi_zaokM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "353858780966-umsiona4qq1aa7gnk8qroaibk7u9iv11.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

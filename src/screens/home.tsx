@@ -15,6 +15,7 @@ import {
 import auth from "@react-native-firebase/auth";
 
 const Home = ({ navigation }: { navigation: any }) => {
+  
   const [refreshing, setRefreshing] = useState<boolean>(false);
   const [apiData, setAPIData] = useState<
     { text: string; author: string } | undefined
@@ -23,19 +24,8 @@ const Home = ({ navigation }: { navigation: any }) => {
   useEffect(() => {
     pullData();
   }, []);
-  const signOutUser = async () => {
-    try {
-      auth().signOut();
-      console.log("User signed out.");
-      ToastAndroid.show("User signed out", ToastAndroid.SHORT);
-      navigation.navigate("EmailPassAuth");
-    } catch (error) {
-      if (error === "Cant sign out user") {
-        ToastAndroid.show("An error occured", ToastAndroid.SHORT);
-      }
-      console.error(error);
-    }
-  };
+
+  
 
   const url = "https://stoic-quotes.com/api/quote";
   const pullData = async () => {
@@ -94,20 +84,7 @@ const Home = ({ navigation }: { navigation: any }) => {
               </View>
             ) : null}
           </View>
-          <Pressable
-            style={{
-              marginVertical: 10,
-              width: "100%",
-              borderRadius: 10,
-              backgroundColor: "black",
-              height: 50,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            onPress={() => signOutUser()}
-          >
-            <Text style={{ fontSize: 20, color: "white" }}>Sign out</Text>
-          </Pressable>
+          
         </ScrollView>
       </GestureHandlerRootView>
     </SafeAreaView>

@@ -18,14 +18,47 @@ import {
   Pressable,
 } from "react-native";
 import { CommonActions } from "@react-navigation/native";
+import { BottomTabs } from "../App";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 //const Stack = createStackNavigator();
 
 export default function EmailPassAuth({ navigation }: { navigation: any }) {
+  const [stored, setStored] = useState<string>("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
+  const storeData = async (email: string, password: string) => {
+    try {
+      await AsyncStorage.setItem("userEmail", email);
+      await AsyncStorage.setItem("password", password);
+    } catch (error) {
+      console.error("Error storing user data", error);
+    }
+  };
+
+ 
+
+  const createUser = async () => {
+    try {
+      await auth().createUserWithEmailAndPassword(email, password);
+      console.log("User account created");
+      ToastAndroid.show("Account created", ToastAndroid.SHORT);
+      //navigation.navigate("Home");
+      navigation.navigate("BottomTabs", { screen: "Home" });
+      //Email and password to store in the Async storage.
+    } catch (error: any) {
+      if (error.code === "auth/email-already-in-use") {
+        ToastAndroid.show("Email already in use", ToastAndroid.SHORT);
+      }
+      if (error.code === "auth/invalid-email") {
+        ToastAndroid.show("Email Invalid", ToastAndroid.SHORT);
+      }
+      console.error(error);
+    }
+  };
   const signInUser = async () => {
     // Add email, password, and navigation parameters
     try {
@@ -34,7 +67,7 @@ export default function EmailPassAuth({ navigation }: { navigation: any }) {
         password
       ); // Use await to wait for the signInWithEmailAndPassword method to complete
       console.log("User Signed In", userCredential.user.email); // Log the signed-in user's email
-      navigation.navigate("Home");
+      navigation.navigate("BottomTabs", { screen: "Home" });
     } catch (error: any) {
       if (
         error.code === "auth/user-not-found" ||
@@ -44,23 +77,6 @@ export default function EmailPassAuth({ navigation }: { navigation: any }) {
         ToastAndroid.show("Invalid email or password", ToastAndroid.SHORT); // Show a toast message for invalid credentials
       } else {
         ToastAndroid.show("Could not sign in", ToastAndroid.SHORT); // Show a generic sign-in error message
-      }
-      console.error(error);
-    }
-  };
-
-  const createUser = async () => {
-    try {
-      await auth().createUserWithEmailAndPassword(email, password);
-      console.log("User account created");
-      ToastAndroid.show("Account created", ToastAndroid.SHORT);
-      navigation.navigate("Home");
-    } catch (error: any) {
-      if (error.code === "auth/email-already-in-use") {
-        ToastAndroid.show("Email already in use", ToastAndroid.SHORT);
-      }
-      if (error.code === "auth/invalid-email") {
-        ToastAndroid.show("Email Invalid", ToastAndroid.SHORT);
       }
       console.error(error);
     }
@@ -169,7 +185,10 @@ export default function EmailPassAuth({ navigation }: { navigation: any }) {
               justifyContent: "center",
               alignItems: "center",
             }}
-            onPress={() => signInUser}
+            onPress={() => {
+              signInUser();
+              storeData(email, password);
+            }}
           >
             <Text style={{ color: "white", fontSize: 20 }}>Sign In</Text>
           </TouchableOpacity>

@@ -1,10 +1,10 @@
 const firebaseInfo={
-apiKey:'AIzaSyCIndPUuBWYvBe-79eY8dWsnZ0cs4zqlL4',
-appId:'1:353858780966:android:1faf3baaeb01da17aa8be7',
-messagingSenderId:"353858780966",
-projectId:'quizmania-45e23',
-databaseURL : "https://quizmania-45e23.firebaseio.com/",
-storageBucket: "gs://quizmania-45e23.appspot.com",
+apiKey:'AIzaSyCwB8zfUS-90A6U-mulZ7U7my_zi_zaokM',
+appId:'1:330812109325:android:a76583f7f068c7c2cb1b44',
+messagingSenderId:"330812109325",
+projectId:	'stoic-193a1',
+databaseURL : "https://stoic-193a1-default-rtdb.firebaseio.com/",
+storageBucket: "gs://stoic-193a1.appspot.com",
 }
 
 export default firebaseInfo
